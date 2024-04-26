@@ -3,6 +3,11 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        /* 연산의 결과를 저장할 수 있도록 적합한 타입의 배열을 생성합니다. */
+        int[] arr = new int[10];
+        /* 연산의 결과가 저장된 배열의 마지막 index를 저장하는 변수를 선언 */
+        int index = 0;
+
         while(true) { // break 걸리기 전까지 반복
             System.out.print("첫 번째 숫자를 입력하세요: ");
             int a = sc.nextInt();
@@ -21,6 +26,10 @@ public class App {
             /* 제어문을 활용하여 위 요구사항을 만족할 수 있게 구현합니다.*/
             System.out.println("결과: " + result);
 
+            /* 연산의 결과를 배열에 저장합니다. */
+            arr[index] = result;
+            /* index를 증가 시킵니다. */
+            index++;
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String ans = sc.next();
             if (ans.equals("exit")) break;
