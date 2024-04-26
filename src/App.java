@@ -26,10 +26,16 @@ public class App {
             /* 제어문을 활용하여 위 요구사항을 만족할 수 있게 구현합니다.*/
             System.out.println("결과: " + result);
 
-            /* 연산의 결과를 배열에 저장합니다. */
-            arr[index] = result;
-            /* index를 증가 시킵니다. */
-            index++;
+            if(index == 9) { // 배열이 다 찼을 경우
+                for (int i = 0; i < 9; i++) // 모든 배열을 한칸씩 미뤄줌
+                    arr[i] = arr[i + 1];
+                arr[9] = result; // 새로운 값 마지막 인덱스에 담아주기
+            }
+
+            else {
+                arr[index] = result;
+                index++;
+            }
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String ans = sc.next();
             if (ans.equals("exit")) break;
