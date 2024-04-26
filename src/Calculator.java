@@ -27,5 +27,9 @@ public class Calculator {
         que = q;
     }
 
+    public void removeResult(){
+        que.remove();
+    }
+
 
 }

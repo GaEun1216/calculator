@@ -24,8 +24,8 @@ public class App {
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             ans[0] = sc.next();
             que = cal.getque();
-            if (ans[0].equals("remove")) que.poll();
-            cal.setque(que);
+            if (ans[0].equals("remove")) cal.removeResult();
+
             // 2. 지금까지 연산 조회
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             ans[1] = sc.next();
