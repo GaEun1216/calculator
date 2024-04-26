@@ -5,8 +5,8 @@ public class App {
         Calculator cal = new Calculator();
         Scanner sc = new Scanner(System.in);
         String[] ans = new String[3];
-        Queue<Integer> que = new LinkedList<Integer>();
         int result;
+
         while(true) { // break 걸리기 전까지 반복
             System.out.print("첫 번째 숫자를 입력하세요: ");
             int a = sc.nextInt();
@@ -23,7 +23,7 @@ public class App {
             // 1. remove 로 첫번째 값 지우기
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             ans[0] = sc.next();
-            que = cal.getque();
+
             if (ans[0].equals("remove")) cal.removeResult();
 
             // 2. 지금까지 연산 조회
