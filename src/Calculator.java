@@ -30,6 +30,9 @@ public class Calculator {
     public void removeResult(){
         que.remove();
     }
+    public void inquiryResults() {
+        que.forEach(data -> System.out.println(data));
+    }
 
 
 }

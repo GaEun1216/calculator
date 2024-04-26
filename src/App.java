@@ -29,7 +29,7 @@ public class App {
             // 2. 지금까지 연산 조회
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             ans[1] = sc.next();
-            if (ans[1].equals("inquiry")) que.forEach(data -> System.out.println(data));
+            if (ans[1].equals("inquiry")) cal.inquiryResults();
             // 3. while문 빠져 나가기
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             ans[2] = sc.next();
