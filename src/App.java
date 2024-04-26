@@ -1,10 +1,12 @@
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         /* 연산의 결과를 저장할 수 있도록 적합한 타입의 배열을 생성합니다. */
-        int[] arr = new int[10];
+        Queue<Integer> que = new LinkedList<Integer>();
         /* 연산의 결과가 저장된 배열의 마지막 index를 저장하는 변수를 선언 */
         int index = 0;
 
@@ -26,19 +28,15 @@ public class App {
             /* 제어문을 활용하여 위 요구사항을 만족할 수 있게 구현합니다.*/
             System.out.println("결과: " + result);
 
-            if(index == 9) { // 배열이 다 찼을 경우
-                for (int i = 0; i < 9; i++) // 모든 배열을 한칸씩 미뤄줌
-                    arr[i] = arr[i + 1];
-                arr[9] = result; // 새로운 값 마지막 인덱스에 담아주기
-            }
-
-            else {
-                arr[index] = result;
-                index++;
-            }
+            que.add(result);
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            String ans1 = sc.next();
+            // poll 함수는 가장 첫번째값 제거
+            if (ans1.equals("remove")) que.poll();
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-            String ans = sc.next();
-            if (ans.equals("exit")) break;
+            String ans2 = sc.next();
+            if (ans2.equals("exit")) break;
+
         }
     }
 }
