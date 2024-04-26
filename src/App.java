@@ -16,17 +16,6 @@ public class App {
             char tool = sc.next().charAt(0);
             result = cal.calculate(a,b,tool);
 
-            /* 제어문을 활용하여 위 요구사항을 만족할 수 있게 구현합니다.*/
-            System.out.println("결과: " + result);
-
-            // 1. remove 로 첫번째 값 지우기
-            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
-            ans[0] = sc.next();
-            if (ans[0].equals("remove")) cal.que.poll();
-            // 2. 지금까지 연산 조회
-            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-            ans[1] = sc.next();
-            if (ans[1].equals("inquiry")) cal.que.forEach(data -> System.out.println(data));
             // 3. while문 빠져 나가기
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             ans[2] = sc.next();
