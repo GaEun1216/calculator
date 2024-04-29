@@ -1,18 +1,22 @@
 import java.util.Queue;
 
 public class ArithmeticCalculator extends Calculator{
-
+    /* 연산 메서드의 책임을 분리 해봅니다. (SRP)
+    처음 포함 관계를 상속과 헷갈렸는데,
+    클래스의 멤버로 다른 클래스 자료형의 참조 변수를 선언하는 것을 의미하므로
+    해당 사칙 연산 클래스를 불러와 연산시 클래스 내에서 처리하면 된다.
+     */
 
     public double cal(int a, int b,char tool) throws CalException{
         double result = 0;
         switch (tool) { // 각 사칙연산에 해당하는 작업 수행
-            case '+' -> result = a + b;
-            case '-' -> result = a - b;
+            case '+' -> result = new AddOperation().operate(a,b);
+            case '-' -> result = new SubstractOperation().operate(a,b);
             case '/' -> {
                 if(b==0) throw new CalException();
-                else result = a / b;
+                else result = new DivideOperation().operate(a,b);
             }
-            case '*' -> result = a * b;
+            case '*' -> result = new MultiplyOperation().operate(a,b);
         }
         que.add(result);
         return result;
