@@ -12,8 +12,6 @@ public class Calculator {
 
     public double cal(){return 0;}
 
-
-
     public Queue getque(){
         return que;
     }
@@ -29,6 +27,5 @@ public class Calculator {
     public void inquiryResults() {
         que.forEach(data -> System.out.println(data));
     }
-
 
 }

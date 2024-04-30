@@ -1,4 +1,4 @@
-public class AddOperation {
+public class AddOperation implements AbstractOperation{
     public double operate(int f, int s){
         return f+s;
     }
