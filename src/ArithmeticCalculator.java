@@ -6,6 +6,7 @@ public class ArithmeticCalculator extends Calculator{
     클래스의 멤버로 다른 클래스 자료형의 참조 변수를 선언하는 것을 의미하므로
     해당 사칙 연산 클래스를 불러와 연산시 클래스 내에서 처리하면 된다.
      */
+    // 인터페이스 abs를 선언하고 switch문을 이용하여 원하는 기능을 가져온다.
     private AbstractOperation abs;
 
 
@@ -26,3 +27,4 @@ public class ArithmeticCalculator extends Calculator{
     }
 
 }
+

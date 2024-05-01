@@ -2,7 +2,8 @@ import java.util.*;
 
 public class Calculator {
     /* 연산의 결과를 저장할 수 있도록 적합한 타입의 배열을 생성합니다. */
-
+    // 이 안에서 que를 생성한 이유는 Calculator의 자식 클래스가 사칙연산, 원의 넓이를 계산하는 클래스 2개인데
+    // 각각 값을 담아주는 que를 분리해주기 위해 부모 클래스 안에 큐 구현
     protected Queue<Double> que;
 
     public Calculator(){

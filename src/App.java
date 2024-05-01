@@ -3,12 +3,14 @@ import java.util.*;
 
 public class App {
     public static void main(String[] args) throws CalException {
+        // 계산에 필요한 사칙연산 + mod 클래스와 원의 넓이를 구하는 객체 생성 후 초기화
         ArithmeticCalculator ar = new ArithmeticCalculator();
         CircleCalculator cir = new CircleCalculator();
         Scanner sc = new Scanner(System.in);
+        // 부가기능 사용 유무를 담을 answer 배열
         String[] ans = new String[3];
-        int key;
-        double result;
+        int key; // 사칙연산, 원의 넓이를 선택하는 값
+        double result; // 결과값
 
         while(true) { // break 걸리기 전까지 반복
             System.out.print("사칙 연산 => 1 , 원의 넓이 계산 => 2 \n입력 : ");
@@ -21,7 +23,9 @@ public class App {
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 // 문자열이 아닌 문자 입력받기
                 char tool = sc.next().charAt(0);
+                // ArithmeticCalculator 클래스에서 tool을 이용해 연산 수행
                 result = ar.cal(a,b,tool);
+
                 System.out.println("결과: " + result);
 
                 // 1. remove 로 첫번째 값 지우기
@@ -35,7 +39,7 @@ public class App {
                 ans[1] = sc.next();
                 if (ans[1].equals("inquiry")) ar.inquiryResults();
             }
-            else if(key == 2){
+            else if(key == 2){ // 원의 넓이 구하기
                 System.out.print("넓이를 구할 원의 반지름을 입력하세요 : ");
                 int a = sc.nextInt();
                 result = cir.cal(a);
