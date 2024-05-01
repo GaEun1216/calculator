@@ -1,6 +1,13 @@
+import java.awt.datatransfer.FlavorListener;
+
 public class DivideOperation implements AbstractOperation{
-    // 나눗셈 기능
-    public double operate(int f, int s){
-        return (double)f/(double)s;
+    //곱셈 기능
+
+    @Override
+    public <T extends Number> T operate(T f, T s) throws IllegalAccessException {
+        if (f instanceof Integer) return (T)Integer.valueOf(f.intValue()/s.intValue());
+        else if (f instanceof Double) return (T)Double.valueOf(f.doubleValue()/s.doubleValue());
+        else if (f instanceof Float) return (T)Float.valueOf(f.floatValue()/s.floatValue());
+        else throw new IllegalAccessException("지원하지 않는 타입입니다.");
     }
 }

@@ -10,8 +10,8 @@ public class ArithmeticCalculator extends Calculator{
     private AbstractOperation abs;
     OperatorType operate;
 
-    public double cal(int a, int b,char tool) throws CalException{
-        double result = 0;
+    public <T extends Number>T cal(T a, T b,char tool) throws CalException{
+        T result = null;
         operate = OperatorType.createOperate(tool);
         // 기존 switch 인자는  tool 인데 operate로 변환
         switch (operate) { // 각 사칙연산에 해당하는 작업 수행
@@ -22,8 +22,13 @@ public class ArithmeticCalculator extends Calculator{
             case Mod -> abs =  new ModOperator(); //추가
         }
         // 분모가 0일 경우 오류 발생 메시지 출력
-        if(b==0) throw new CalException();
-        else result = abs.operate(a, b);
+
+        try {
+            result = (T) abs.operate(a, b);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+
         que.add(result);
         return result;
     }

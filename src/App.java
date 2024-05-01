@@ -17,15 +17,25 @@ public class App {
             key = sc.nextInt();
             if(key ==1) {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
-                int a = sc.nextInt();
+                double a = sc.nextDouble();
                 System.out.print("두 번째 숫자를 입력하세요: ");
-                int b = sc.nextInt();
+                double b = sc.nextDouble();
                 System.out.print("사칙연산 기호를 입력하세요: ");
                 // 문자열이 아닌 문자 입력받기
                 char tool = sc.next().charAt(0);
                 // ArithmeticCalculator 클래스에서 tool을 이용해 연산 수행
-                result = ar.cal(a,b,tool);
+                if ( a == (int)a && b ==(int)b) {
+                    int a1 = (int)a;
+                    int b1 = (int)b;
+                    result = ar.cal(a1,b1,tool);
 
+                }
+                else result = ar.cal(a,b,tool);
+
+                // cal 함수는 원의 넓이와 함께 사용되기 때문에
+                // result는 double로 생성함
+                // 하지만 inquiry를 통해 정수를 조회하면
+                // 정수로 담겨있는 것을 확인할 수 있다.
                 System.out.println("결과: " + result);
 
                 // 1. remove 로 첫번째 값 지우기
