@@ -1,15 +1,17 @@
 import java.awt.datatransfer.FlavorListener;
 
-public class AddOperation implements AbstractOperation{
+public class AddOperation<T extends Number> implements AbstractOperation<T>{
     //덧셈 기능
+    // 클래스 타입들의 클래스...? 어려워요 : 클래스의 정보가 담긴 클래스
+    public final Class<T> type;
 
+    public AddOperation(Class<T> type){this.type=type;}
     @Override
-    public <T extends Number> T operate(T f, T s) throws IllegalAccessException {
+    public T operate(T  f, T  s) {
 
+        double result = f.doubleValue() + s.doubleValue();
 
-        if (f instanceof Integer) return (T)Integer.valueOf(f.intValue()+s.intValue());
-        else if (f instanceof Double) return (T)Double.valueOf(f.doubleValue()+s.doubleValue());
-        else if (f instanceof Float) return (T)Float.valueOf(f.floatValue()+s.floatValue());
-        else throw new IllegalAccessException("지원하지 않는 타입입니다.");
+        return NumberConversionUtils.convertNumberToType(result, type);
     }
+
 }

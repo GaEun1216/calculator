@@ -4,15 +4,16 @@ import java.util.*;
 public class App {
     public static void main(String[] args) throws CalException {
         // 계산에 필요한 사칙연산 + mod 클래스와 원의 넓이를 구하는 객체 생성 후 초기화
-        ArithmeticCalculator ar = new ArithmeticCalculator();
+
+        // Double형 class를 사용하기 위해 형태가 바뀌었다... 아직 어렵다
+        ArithmeticCalculator<Double> ar = new ArithmeticCalculator<>(Double.class);
         CircleCalculator cir = new CircleCalculator();
         Scanner sc = new Scanner(System.in);
-        // 부가기능 사용 유무를 담을 answer 배열
-        String[] ans = new String[3];
+        // 기존 ans[3] 배열로 remove,inquiry등을 보관하였는데 입력받고 바로 작업에 들어가도록 수정하여 변수 필요 X
         int key; // 사칙연산, 원의 넓이를 선택하는 값
-        double result; // 결과값
+        Number result; // 결과값
 
-        while(true) { // break 걸리기 전까지 반복
+        do { // 기존 while문에서 do-while로 변경
             System.out.print("사칙 연산 => 1 , 원의 넓이 계산 => 2 \n입력 : ");
             key = sc.nextInt();
             if(key ==1) {
@@ -24,13 +25,8 @@ public class App {
                 // 문자열이 아닌 문자 입력받기
                 char tool = sc.next().charAt(0);
                 // ArithmeticCalculator 클래스에서 tool을 이용해 연산 수행
-                if ( a == (int)a && b ==(int)b) {
-                    int a1 = (int)a;
-                    int b1 = (int)b;
-                    result = ar.cal(a1,b1,tool);
 
-                }
-                else result = ar.cal(a,b,tool);
+                result = ar.calculate(a,b,tool);
 
                 // cal 함수는 원의 넓이와 함께 사용되기 때문에
                 // result는 double로 생성함
@@ -40,14 +36,11 @@ public class App {
 
                 // 1. remove 로 첫번째 값 지우기
                 System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
-                ans[0] = sc.next();
-
-                if (ans[0].equals("remove")) ar.removeResult();
+                if (sc.next().equals("remove")) ar.removeResult();
 
                 // 2. 지금까지 연산 조회
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-                ans[1] = sc.next();
-                if (ans[1].equals("inquiry")) ar.inquiryResults();
+                if (sc.next().equals("inquiry")) ar.inquiryResults();
             }
             else if(key == 2){ // 원의 넓이 구하기
                 System.out.print("넓이를 구할 원의 반지름을 입력하세요 : ");
@@ -56,14 +49,10 @@ public class App {
                 System.out.println("원의 넓이 : "+result);
                 // 연산 조회
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-                ans[1] = sc.next();
-                if (ans[1].equals("inquiry")) cir.inquiryResults();
+                if (sc.next().equals("inquiry")) cir.inquiryResults();
             }
-            // 3. while문 빠져 나가기
+            // 3. do - while문 빠져 나가기
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-            ans[2] = sc.next();
-            if (ans[2].equals("exit")) break;
-
-        }
+        }while(!sc.next().equals("exit"));
     }
 }
