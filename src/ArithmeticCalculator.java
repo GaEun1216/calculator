@@ -46,8 +46,9 @@ public class ArithmeticCalculator<T extends Number> extends Calculator{
             - 추가) 람다 & 스트림 학습을 위해 여러 가지 조회 조건들을 추가하여 구현 해보시면 학습에 많은 도움이 되실 수 있습니다.
     */
     public void bigRequiry(double num){
-        //que.stream().filter(q-> (double) q > num)
-        //        .forEach(q-> System.out.println(q));
+
+        que.stream().filter(q-> (double) q > num)
+            .forEach(q-> System.out.println(q));
 
     }
 }

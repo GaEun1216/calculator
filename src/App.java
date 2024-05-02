@@ -13,6 +13,7 @@ public class App {
         int key; // 사칙연산, 원의 넓이를 선택하는 값
         Number result; // 결과값
 
+
         do { // 기존 while문에서 do-while로 변경
             System.out.print("사칙 연산 => 1 , 원의 넓이 계산 => 2 \n입력 : ");
             key = sc.nextInt();
@@ -28,6 +29,7 @@ public class App {
 
                 result = ar.calculate(a,b,tool);
 
+
                 // cal 함수는 원의 넓이와 함께 사용되기 때문에
                 // result는 double로 생성함
                 // 하지만 inquiry를 통해 정수를 조회하면
@@ -41,6 +43,10 @@ public class App {
                 // 2. 지금까지 연산 조회
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
                 if (sc.next().equals("inquiry")) ar.inquiryResults();
+
+                // 3-3 : steam이랑 lamda 사용해서 필터링 하기
+                System.out.print("기준 값을 입력하세요 : ");
+                ar.bigRequiry(sc.nextDouble());
             }
             else if(key == 2){ // 원의 넓이 구하기
                 System.out.print("넓이를 구할 원의 반지름을 입력하세요 : ");

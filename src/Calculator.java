@@ -18,7 +18,6 @@ public class Calculator<T> {
     public Queue getque(){
         return que;
     }
-    public double quepeek(){return que.peek();}
     public void setque(Queue que){
         this.que = que;
     }
