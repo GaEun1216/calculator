@@ -6,7 +6,6 @@ public class CircleCalculator extends Calculator{
 
     public double cal(int radius){
         double result = radius*radius*PI;
-        que.add(result);
         return result;
     }
 

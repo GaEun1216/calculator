@@ -22,6 +22,7 @@ public class Calculator<T> {
         this.que = que;
     }
 
+    public void addque(Double value){this.que.add(value);}
 
     public void removeResult(){
         que.remove();

@@ -7,7 +7,7 @@ public class AddOperation<T extends Number> implements AbstractOperation<T>{
 
     public AddOperation(Class<T> type){this.type=type;}
     @Override
-    public T operate(T  first, T  second) {
+    public T operate(T first, T second) {
 
         double result = first.doubleValue() + second.doubleValue();
 
