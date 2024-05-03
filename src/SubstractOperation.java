@@ -7,9 +7,9 @@ public class SubstractOperation<T extends Number> implements AbstractOperation<T
 
     public SubstractOperation(Class<T> type){this.type=type;}
     @Override
-    public T operate(T  f, T  s) {
+    public T operate(T  first, T  second) {
 
-        double result = f.doubleValue() - s.doubleValue();
+        double result = first.doubleValue() - second.doubleValue();
 
         return NumberConversionUtils.convertNumberToType(result, type);
     }

@@ -17,6 +17,7 @@ public class App {
         do { // 기존 while문에서 do-while로 변경
             System.out.print("사칙 연산 => 1 , 원의 넓이 계산 => 2 \n입력 : ");
             key = sc.nextInt();
+            // 사칙 연산
             if(key ==1) {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
                 double a = sc.nextDouble();
@@ -28,12 +29,9 @@ public class App {
                 // ArithmeticCalculator 클래스에서 tool을 이용해 연산 수행
 
                 result = ar.calculate(a,b,tool);
+                // 계산과 큐에 add 하는 구간 분리
+                ar.getque().add(result);
 
-
-                // cal 함수는 원의 넓이와 함께 사용되기 때문에
-                // result는 double로 생성함
-                // 하지만 inquiry를 통해 정수를 조회하면
-                // 정수로 담겨있는 것을 확인할 수 있다.
                 System.out.println("결과: " + result);
 
                 // 1. remove 로 첫번째 값 지우기
@@ -45,10 +43,12 @@ public class App {
                 if (sc.next().equals("inquiry")) ar.inquiryResults();
 
                 // 3-3 : steam이랑 lamda 사용해서 필터링 하기
+                System.out.print("해당 수보다 큰 값을 출력합니다.");
                 System.out.print("기준 값을 입력하세요 : ");
                 ar.bigRequiry(sc.nextDouble());
             }
-            else if(key == 2){ // 원의 넓이 구하기
+            // 원의 넓이 구하기
+            else if(key == 2){
                 System.out.print("넓이를 구할 원의 반지름을 입력하세요 : ");
                 int a = sc.nextInt();
                 result = cir.cal(a);

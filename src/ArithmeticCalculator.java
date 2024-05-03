@@ -17,7 +17,8 @@ public class ArithmeticCalculator<T extends Number> extends Calculator{
     }
 
 
-    public T calculate(T a, T b,char tool) throws CalException{
+
+    public T calculate(T first, T second,char tool) throws CalException{
         T result = null;
         operate = OperatorType.createOperate(tool);
         // 기존 switch 인자는  tool 인데 operate로 변환
@@ -31,8 +32,7 @@ public class ArithmeticCalculator<T extends Number> extends Calculator{
         // 분모가 0일 경우 오류 발생 메시지 출력
 
         try { // 예제에서는 해당 부분 쪼개서 함수로 구현했는데 제 코드에서는 cal 하나로 구혀
-            result = (T) abs.operate(a, b);
-            que.add(result);
+            result = (T) abs.operate(first, second);
         } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
         }
@@ -48,7 +48,8 @@ public class ArithmeticCalculator<T extends Number> extends Calculator{
     public void bigRequiry(double num){
 
         que.stream().filter(q-> (double) q > num)
-            .forEach(q-> System.out.println(q));
+            .forEach(q-> System.out.print(" "+q));
+        System.out.println(); //줄바꿈
 
     }
 }

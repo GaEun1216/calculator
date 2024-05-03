@@ -6,8 +6,8 @@ public class MultiplyOperation<T extends Number> implements AbstractOperation<T>
 
     public MultiplyOperation(Class<T> type){this.type=type;}
     @Override
-    public T operate(T  f, T  s) {
-        double result = f.doubleValue() * s.doubleValue();
+    public T operate(T  first, T  second) {
+        double result = first.doubleValue() * second.doubleValue();
 
         return NumberConversionUtils.convertNumberToType(result, type);
     }
